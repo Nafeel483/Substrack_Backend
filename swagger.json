@@ -10,7 +10,7 @@
     }
   },
 
-  "host": "auth-backend-production-0616.up.railway.app",
+  "host": "substrackbackend-production.up.railway.app",
   "basePath": "/api/v1",
   "tags": [
     {
