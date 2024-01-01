@@ -1,0 +1,49 @@
+"/user/{id}": {
+    "parameters": [
+        {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of user that we want to find",
+            "type": "integer"
+        }
+    ],
+    "delete": {
+        "summary": "Delete user with given ID",
+        "tags": [
+            "Users"
+        ],
+        "responses": {
+            "200": {
+                "description": "User is deleted",
+                "schema": {
+                    "$ref": "#/definitions/User"
+                }
+            }
+        }
+    },
+    "put": {
+        "summary": "Update user with give ID",
+        "tags": [
+            "Users"
+        ],
+        "parameters": [
+            {
+                "name": "user",
+                "in": "body",
+                "description": "User with new values of properties",
+                "schema": {
+                    "$ref": "#/definitions/updateUser"
+                }
+            }
+        ],
+        "responses": {
+            "200": {
+                "description": "User is updated",
+                "schema": {
+                    "$ref": "#/definitions/User"
+                }
+            }
+        }
+    }
+}

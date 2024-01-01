@@ -1,0 +1,851 @@
+"/post/createPost": {
+  "post": {
+    "tags": ["Posts"],
+    "description": "create new post",
+    "parameters": [
+      {
+        "name": "Posts",
+        "in": "body",
+        "description": "create new post",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Your post is created",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    }
+  }
+},
+"/post/editPost": {
+  "post": {
+    "tags": ["Posts"],
+    "description": "edit post",
+    "parameters": [
+      {
+        "name": "postId",
+        "in": "query",
+        "description": "edit post"
+      },
+      {
+        "name": "Posts",
+        "in": "body",
+        "description": "edit post",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Changes are saved",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    }
+  }
+},
+"/post/delPost": {
+  "delete": {
+    "tags": ["Posts"],
+    "description": "del post",
+    "parameters": [
+      {
+        "name": "postId",
+        "in": "query",
+        "description": "post id",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Post is deleted",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    }
+  }
+},
+"/post/getPost": {
+  "get": {
+    "tags": ["Posts"],
+    "description": "edit post",
+    "parameters": [
+      {
+        "name": "postId",
+        "in": "query",
+        "description": "post id",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "get post by its id",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    }
+  }
+},
+"/post/getAllPost": {
+  "get": {
+    "tags": ["Posts"],
+    "description": "all posts",
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "all posts",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    }
+  }
+},
+"/post/getPostByType": {
+  "get": {
+    "tags": ["Posts"],
+    "description": "post",
+    "parameters": [
+      {
+        "name": "postType",
+        "in": "query",
+        "description": "post id",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "posts",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    }
+  }
+},
+"/post/getPostOfUser": {
+  "get": {
+    "tags": ["Posts"],
+    "description": "post of user",
+    "parameters": [
+      {
+        "name": "userId",
+        "in": "query",
+        "description": "post id",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "post of user",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    }
+  }
+},
+"/post/getPostByAudience": {
+  "get": {
+    "tags": ["Posts"],
+    "description": "post of audience type",
+    "parameters": [
+      {
+        "name": "type",
+        "in": "query",
+        "description": "audience type",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "post of audience type",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    }
+  }
+},
+"/post/likePost": {
+  "post": {
+    "tags": ["Posts"],
+    "description": "Like a Post",
+    "parameters": [
+      {
+        "name": "postid userid",
+        "in": "body",
+        "description": "enter postid and userid",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "string"
+            },
+            "postId": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "you have liked a post"
+      }
+    }
+  }
+},
+"/post/unlikePost": {
+  "post": {
+    "tags": ["Posts"],
+    "description": "un-Like a Post",
+    "parameters": [
+      {
+        "name": "postid userid",
+        "in": "body",
+        "description": "enter postid and userid",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "string"
+            },
+            "postId": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "you have disliked a post"
+      }
+    }
+  }
+},
+"/post/addComment": {
+  "post": {
+    "tags": ["Posts"],
+    "description": "add a comment to Post",
+    "parameters": [
+      {
+        "name": "postid userid",
+        "in": "body",
+        "description": "enter postid and userid",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "string"
+            },
+            "postId": {
+              "type": "string"
+            },
+            "comment": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "your comment have added"
+      }
+    }
+  }
+},
+"/post/removeComment": {
+  "post": {
+    "tags": ["Posts"],
+    "description": "remove comment from Post",
+    "parameters": [
+      {
+        "name": "postid userid",
+        "in": "body",
+        "description": "enter postid and userid",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "postId": {
+              "type": "string"
+            },
+            "commentId": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Your comment have removed"
+      }
+    }
+  }
+},
+"/post/reShare": {
+  "post": {
+    "tags": ["Posts"],
+    "description": "reshare post",
+    "parameters": [
+      {
+        "name": "postid userid",
+        "in": "body",
+        "description": "enter postid and userid",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "postId": {
+              "type": "string"
+            },
+            "userId": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Post have re shared"
+      }
+    }
+  }
+},
+"/user/savePost": {
+  "post": {
+    "tags": ["Users"],
+    "description": "post saved",
+    "parameters": [
+      {
+        "name": "postid userid",
+        "in": "body",
+        "description": "enter postid and userid",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "postId": {
+              "type": "string"
+            },
+            "userId": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Post have saved"
+      }
+    }
+  }
+},
+"/user/getUser": {
+  "get": {
+    "tags": ["Users"],
+    "description": "get user",
+    "parameters": [
+      {
+        "name": "userId",
+        "in": "query",
+        "description": "user id",
+        "schema": {
+          "$ref": "#/definitions/Posts"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "data of user",
+        "schema": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    }
+  }
+},
+"/user/getFriends": {
+  "get": {
+    "tags": ["Users"],
+    "description": "get user",
+    "parameters": [
+      {
+        "name": "userId",
+        "in": "query",
+        "description": "user id",
+        "schema": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "data of user",
+        "schema": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    }
+  }
+},
+"/user/getFriendRequest": {
+  "get": {
+    "tags": ["Users"],
+    "description": "get user",
+    "parameters": [
+      {
+        "name": "userId",
+        "in": "query",
+        "description": "user id",
+        "schema": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "data of user",
+        "schema": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    }
+  }
+},
+"/user/getSentFriendRequests": {
+  "get": {
+    "tags": ["Users"],
+    "description": "get user",
+    "parameters": [
+      {
+        "name": "userId",
+        "in": "query",
+        "description": "user id",
+        "schema": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "data of user",
+        "schema": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    }
+  }
+},
+"/user/acceptFriendsRequest": {
+  "post": {
+    "tags": ["Users"],
+    "description": "post saved",
+    "parameters": [
+      {
+        "name": "postid userid",
+        "in": "body",
+        "description": "enter postid and userid",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "string"
+            },
+            "friendId": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Post have saved"
+      }
+    }
+  }
+},
+"/user/unFriends": {
+  "post": {
+    "tags": ["Users"],
+    "description": "post saved",
+    "parameters": [
+      {
+        "name": "postid userid",
+        "in": "body",
+        "description": "enter postid and userid",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "string"
+            },
+            "friendId": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Post have saved"
+      }
+    }
+  }
+},
+"/user/removeFriendRequest": {
+  "post": {
+    "tags": ["Users"],
+    "description": "post saved",
+    "parameters": [
+      {
+        "name": "postid userid",
+        "in": "body",
+        "description": "enter postid and userid",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "string"
+            },
+            "friendId": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Post have saved"
+      }
+    }
+  }
+},
+"/user/cancelFriendRequest": {
+  "post": {
+    "tags": ["Users"],
+    "description": "post saved",
+    "parameters": [
+      {
+        "name": "postid userid",
+        "in": "body",
+        "description": "enter postid and userid",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "string"
+            },
+            "friendId": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Post have saved"
+      }
+    }
+  }
+},
+"/user/addFriendsRequest": {
+  "post": {
+    "tags": ["Users"],
+    "description": "request sent",
+    "parameters": [
+      {
+        "name": "friendId userid",
+        "in": "body",
+        "description": "enter friendId and userid",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "string"
+            },
+            "friendId": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Post have saved"
+      }
+    }
+  }
+},
+"/post/editSetting": {
+  "post": {
+    "tags": ["Settings"],
+    "description": "edit settings",
+    "parameters": [
+      {
+        "name": "userId",
+        "in": "query",
+        "description": "enter user id"
+      },
+      {
+        "name": "Settings",
+        "in": "body",
+        "description": "sent only those settings which you want to modifiy",
+        "schema": {
+          "$ref": "#/definitions/Settings"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Changes are saved",
+        "schema": {
+          "$ref": "#/definitions/Settings"
+        }
+      }
+    }
+  }
+},
+
+"/allbums/getAllbumOfUser": {
+  "get": {
+    "tags": ["Allbums"],
+    "description": "allbum of user",
+    "parameters": [
+      {
+        "name": "userId",
+        "in": "query",
+        "description": "user id",
+        "schema": {
+          "$ref": "#/definitions/Allbums"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "allbum of user",
+        "schema": {
+          "$ref": "#/definitions/Allbums"
+        }
+      }
+    }
+  }
+},
+"/allbums/createAlbum": {
+  "post": {
+    "tags": ["Allbums"],
+    "description": "create new Allbum",
+    "parameters": [
+      {
+        "name": "Allbums",
+        "in": "body",
+        "description": "create new allbum",
+        "schema": {
+          "$ref": "#/definitions/Allbums"
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Your Allbums is created",
+        "schema": {
+          "$ref": "#/definitions/Allbums"
+        }
+      }
+    }
+  }
+},
+"/allbums/addPicturesToAlbum": {
+  "post": {
+    "tags": ["Allbums"],
+    "description": "add picture to album",
+    "parameters": [
+      {
+        "name": "addpicture",
+        "in": "body",
+        "description": "add picture to album",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "albumId": {
+              "type": "string"
+            },
+            "photo": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "added picture to album",
+        "schema": {
+          "$ref": "#/definitions/Allbums"
+        }
+      }
+    }
+  }
+}
+
+
+"Posts": {
+  "properties": {
+    "postTitle": {
+      "type": "string"
+    },
+    "postDescription": {
+      "type": "string"
+    },
+    "postPhotos": {
+      "type": "array"
+    },
+    "tags": {
+      "type": "array"
+    },
+    "nsfw": {
+      "type": "boolean"
+    },
+    "postAudienceType": {
+      "type": "string"
+    },
+    "postUser": {
+      "type": "string"
+    },
+    "tagUsers": {
+      "type": "array"
+    },
+    "postAudience": {
+      "type": "array"
+    }
+  }
+},
+"Settings": {
+  "userId": {
+    "type": "string"
+  },
+  "themeColor": {
+    "type": "string"
+  },
+  "displayAnthem": {
+    "type": "boolean",
+    "default": false
+  },
+  "displayTop10": {
+    "type": "boolean",
+    "default": false
+  },
+  "displayWallComments": {
+    "type": "boolean",
+    "default": false
+  },
+  "showOnline": {
+    "type": "boolean",
+    "default": false
+  },
+  "privateProfile": {
+    "type": "boolean",
+    "default": false
+  },
+  "hideProfileSearch": {
+    "type": "boolean",
+    "default": false
+  },
+  "hideAge": {
+    "type": "boolean",
+    "default": false
+  },
+  "messageAudience": {
+    "type": "string",
+    "enum": ["Everyone", "Friend", "No"],
+    "default": "Everyone"
+  },
+  "messageRestrication": {
+    "type": "boolean",
+    "default": false
+  },
+  "bulletinComment": {
+    "type": "boolean",
+    "default": false
+  },
+  "photoComment": {
+    "type": "boolean",
+    "default": false
+  },
+  "wallComment": {
+    "type": "boolean",
+    "default": false
+  }
+},
+"Allbums": {
+  "properties": {
+    "albumName": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "photo": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

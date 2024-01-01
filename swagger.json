@@ -1,0 +1,445 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "My User Project CRUD",
+    "description": "My User Project Application API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+
+  "host": "auth-backend-production-0616.up.railway.app",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    }
+  ],
+  "schemes": ["https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/user/addDetails": {
+      "post": {
+        "tags": ["Users"],
+        "description": "Create new user in system",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User that we want to create",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/user/signUp": {
+      "post": {
+        "tags": ["Users"],
+        "description": "Create new user in system",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "body",
+            "description": "email",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fullName": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/user/profileSetup": {
+      "post": {
+        "tags": ["Users"],
+        "description": "setup profile of user",
+        "parameters": [
+          {
+            "name": "enter details",
+            "in": "body",
+            "description": "userName, gender, planet, country, postalCode, email is required everthing else is optional",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userName": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "profileImage": {
+                  "type": "string"
+                },
+                "gender": {
+                  "type": "string"
+                },
+                "planet": {
+                  "type": "string",
+                  "enum": ["Earth", "Mars"],
+                  "default": "Earth"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                },
+                "dob": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "headline": {
+                  "type": "string"
+                },
+                "domain": {
+                  "type": "string"
+                },
+                "relation": {
+                  "type": "string"
+                },
+                "orientation": {
+                  "type": "string"
+                },
+                "herefor": {
+                  "type": "string",
+                  "enum": ["Friends", "Dating", "Notworking", "Business"],
+                  "default": "Friends"
+                },
+                "education": {
+                  "type": "string"
+                },
+                "schoolName": {
+                  "type": "string"
+                },
+                "fieldName": {
+                  "type": "string"
+                },
+                "ethnicity": {
+                  "type": "string"
+                },
+                "peopleYouAdmire": {
+                  "type": "string"
+                },
+                "favBandsGroups": {
+                  "type": "string"
+                },
+                "favBooks": {
+                  "type": "string"
+                },
+                "favShows": {
+                  "type": "string"
+                },
+                "favMovies": {
+                  "type": "string"
+                },
+                "bodyType": {
+                  "type": "string"
+                },
+                "hairColor": {
+                  "type": "string"
+                },
+                "hairLength": {
+                  "type": "string"
+                },
+                "hairType": {
+                  "type": "string"
+                },
+                "eyeColor": {
+                  "type": "string"
+                },
+                "faceHair": {
+                  "type": "string"
+                },
+                "bodyTattoos": {
+                  "type": "string"
+                },
+                "faceTats": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Changes are saved"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": ["Users"],
+        "description": "Login to your account",
+        "parameters": [
+          {
+            "name": "userLogin",
+            "in": "body",
+            "description": "login to account",
+            "schema": {
+              "$ref": "#/definitions/UserLogin"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "login success",
+            "schema": {
+              "$ref": "#/definitions/UserLogin"
+            }
+          }
+        }
+      }
+    },
+    "/user/sendotp": {
+      "post": {
+        "tags": ["Users"],
+        "description": "send otp to your account",
+        "parameters": [
+          {
+            "name": "UserOtp",
+            "in": "body",
+            "description": "send otp to email",
+            "schema": {
+              "$ref": "#/definitions/UserOtp"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "otp sent successfully",
+            "schema": {
+              "$ref": "#/definitions/UserLogin"
+            }
+          }
+        }
+      }
+    },
+    "/user/verifyOtp": {
+      "post": {
+        "tags": ["Users"],
+        "description": "verify otp",
+        "parameters": [
+          {
+            "name": "VerifyOtp",
+            "in": "body",
+            "description": "verify otp",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "otp": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Your Email is now verified",
+            "schema": {
+              "$ref": "#/definitions/UserLogin"
+            }
+          }
+        }
+      }
+    },
+    "/user/forgetPassword": {
+      "post": {
+        "tags": ["Users"],
+        "description": "send code to your account",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "body",
+            "description": "send code to email",
+            "schema": {
+              "$ref": "#/definitions/UserOtp"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Email with code sent to your registerd account successfully"
+          }
+        }
+      }
+    },
+    "/user/changePassword": {
+      "post": {
+        "tags": ["Users"],
+        "description": "change password",
+        "parameters": [
+          {
+            "name": "VerifyOtp",
+            "in": "body",
+            "description": "change password",
+            "schema": {
+              "$ref": "#/definitions/changePassword"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Your password is updated",
+            "schema": {
+              "$ref": "#/definitions/UserLogin"
+            }
+          }
+        }
+      }
+    },
+    "/user/updatePassword": {
+      "post": {
+        "tags": ["Users"],
+        "description": "update password",
+        "parameters": [
+          {
+            "name": "update password",
+            "in": "body",
+            "description": "update password",
+            "schema": {
+              "$ref": "#/definitions/updatePassword"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Your password is updated"
+          }
+        }
+      }
+    },
+   
+    "/user/getAllUsers": {
+      "get": {
+        "tags": ["Users"],
+        "description": "get user",
+        "parameters": [],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "data of user",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "required": ["userName", "email", "password"],
+      "properties": {
+        "userName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "UserLogin": {
+      "required": ["userName", "password"],
+      "properties": {
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "UserOtp": {
+      "required": ["email"],
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "VerifyOtp": {
+      "required": ["email"],
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "changePassword": {
+      "required": ["code", "newPassword"],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        }
+      }
+    },
+    "updatePassword": {
+      "required": ["oldPassword", "newPassword", "id"],
+      "properties": {
+        "oldPassword": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
