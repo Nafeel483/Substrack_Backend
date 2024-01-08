@@ -2,7 +2,7 @@ const express = require("express");
 const connectDB = require("./config/dataBase");
 const routes = require('./routes/index');
 const Room = require('./models/Rooms');
-const {saveMessage} = require('./controllers/messageController');
+const { saveMessage } = require('./controllers/messageController');
 const dotenv = require('dotenv');
 
 var cors = require('cors')
@@ -69,8 +69,8 @@ const getRoom = async (senId, recId) => {
 }
 
 const connectMongoDb = async () => {
-   const db = await connectDB();
-   return db;
+  const db = await connectDB();
+  return db;
 }
 connectMongoDb();
 // io.on('connection', async (socket) => {
@@ -81,7 +81,7 @@ connectMongoDb();
 //     console.log("msg",msg)
 //     //   io.emit('toFe',msg)
 //     const room = await getRoom(msg.senderId, msg.recId);
-  
+
 //     console.log("socket.id", socket.id)
 //     socket.join(room?.roomId);
 //     socket.emit("toFe", room?.roomId);

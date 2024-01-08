@@ -590,21 +590,21 @@ exports.getUser = async (req, res) => {
         console.log(err);
       } else {
         const respData = docs[0];
-        const fReqDataC = await User.find({
-          _id: { $in: respData.friendRequests },
-        });
-        fReqDataC.map(async (item) => {
-          item.password = undefined;
-          fReqData.push(item);
-        });
-        const fDataC = await User.find({ _id: { $in: respData.friends } });
-        fDataC.map(async (item) => {
-          item.password = undefined;
-          fData.push(item);
-        });
-        respData.friendRequests = fReqData;
-        respData.friends = fData;
-        respData.password = undefined;
+        // const fReqDataC = await User.find({
+        //   _id: { $in: respData.friendRequests },
+        // });
+        // fReqDataC.map(async (item) => {
+        //   item.password = undefined;
+        //   fReqData.push(item);
+        // });
+        // const fDataC = await User.find({ _id: { $in: respData.friends } });
+        // fDataC.map(async (item) => {
+        //   item.password = undefined;
+        //   fData.push(item);
+        // });
+        // respData.friendRequests = fReqData;
+        // respData.friends = fData;
+        // respData.password = undefined;
         return res.status(200).json({
           status: "User data",
           data: respData,

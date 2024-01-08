@@ -31,106 +31,106 @@ const userSchema = new mongoose.Schema(
       enum: ["Female", "Male", "Other"],
       default: "Female",
     },
-    planet: {
-      type: String,
-      enum: ["Earth", "Mars"],
-      default: "Earth",
-    },
-    country: {
-      type: String,
-    },
-    postalCode: {
-      type: String,
-    },
-    savedPosts: {
-      type: Array,
-    },
-    friendRequests: {
-      type: Array,
-    },
-    sentRequests: {
-      type: Array,
-    },
-    friends: {
-      type: Array,
-    },
-    forgetPasswordCode: {
-      type: String,
-    },
-    dob: {
-      type: String,
-    },
-    language: {
-      type: String,
-    },
-    headline: {
-      type: String,
-    },
-    domain: {
-      type: String,
-    },
-    relation: {
-      type: String,
-    },
-    orientation: {
-      type: String,
-    },
-    herefor: {
-      type: String,
-      enum: ["Friends", "Dating", "Notworking", "Business"],
-      default: "Friends",
-    },
-    education: {
-      type: String,
-    },
-    schoolName: {
-      type: String,
-    },
-    fieldName: {
-      type: String,
-    },
-    ethnicity: {
-      type: String,
-    },
-    peopleYouAdmire: {
-      type: String,
-    },
-    favBandsGroups: {
-      type: String,
-    },
-    favBooks: {
-      type: String,
-    },
-    favShows: {
-      type: String,
-    },
-    favMovies: {
-      type: String,
-    },
-    bodyType: {
-      type: String,
-    },
-    hairColor: {
-      type: String,
-    },
-    hairLength: {
-      type: String,
-    },
-    hairType: {
-      type: String,
-    },
-    eyeColor: {
-      type: String,
-    },
-    faceHair: {
-      type: String,
-    },
-    bodyTattoos: {
-      type: String,
-    },
-    faceTats: {
-      type: String,
-    },
+    // planet: {
+    //   type: String,
+    //   enum: ["Earth", "Mars"],
+    //   default: "Earth",
+    // },
+    // country: {
+    //   type: String,
+    // },
+    // postalCode: {
+    //   type: String,
+    // },
+    // savedPosts: {
+    //   type: Array,
+    // },
+    // friendRequests: {
+    //   type: Array,
+    // },
+    // sentRequests: {
+    //   type: Array,
+    // },
+    // friends: {
+    //   type: Array,
+    // },
+    // forgetPasswordCode: {
+    //   type: String,
+    // },
+    // dob: {
+    //   type: String,
+    // },
+    // language: {
+    //   type: String,
+    // },
+    // headline: {
+    //   type: String,
+    // },
+    // domain: {
+    //   type: String,
+    // },
+    // relation: {
+    //   type: String,
+    // },
+    // orientation: {
+    //   type: String,
+    // },
+    // herefor: {
+    //   type: String,
+    //   enum: ["Friends", "Dating", "Notworking", "Business"],
+    //   default: "Friends",
+    // },
+    // education: {
+    //   type: String,
+    // },
+    // schoolName: {
+    //   type: String,
+    // },
+    // fieldName: {
+    //   type: String,
+    // },
+    // ethnicity: {
+    //   type: String,
+    // },
+    // peopleYouAdmire: {
+    //   type: String,
+    // },
+    // favBandsGroups: {
+    //   type: String,
+    // },
+    // favBooks: {
+    //   type: String,
+    // },
+    // favShows: {
+    //   type: String,
+    // },
+    // favMovies: {
+    //   type: String,
+    // },
+    // bodyType: {
+    //   type: String,
+    // },
+    // hairColor: {
+    //   type: String,
+    // },
+    // hairLength: {
+    //   type: String,
+    // },
+    // hairType: {
+    //   type: String,
+    // },
+    // eyeColor: {
+    //   type: String,
+    // },
+    // faceHair: {
+    //   type: String,
+    // },
+    // bodyTattoos: {
+    //   type: String,
+    // },
+    // faceTats: {
+    //   type: String,
+    // },
   },
   { timestamps: true }
 );

@@ -91,7 +91,7 @@
           {
             "name": "enter details",
             "in": "body",
-            "description": "userName, gender, planet, country, postalCode, email is required everthing else is optional",
+            "description": "userName, gender, email is required everthing else is optional",
             "schema": {
               "type": "object",
               "properties": {
