@@ -9,9 +9,7 @@ const connectDB = async () => {
    const dbObject = await mongoose.connect(DB_URI, {
       useNewUrlParser: true,
       useCreateIndex: true,
-      useFindAndModify: true,
       useUnifiedTopology: true,
-      useFindAndModify: false,
     });
 
     console.log("MongoDB Connected Successfully...");
@@ -23,3 +21,12 @@ const connectDB = async () => {
 };
 
 module.exports = connectDB;
+
+
+//  const dbObject = await mongoose.connect(DB_URI, {
+//   useNewUrlParser: true,
+//   useCreateIndex: true,
+//   useFindAndModify: true,
+//   useUnifiedTopology: true,
+//   useFindAndModify: false,
+// });
