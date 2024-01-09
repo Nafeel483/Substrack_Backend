@@ -386,7 +386,7 @@ exports.signUp = async (req, res) => {
       //     });
       // }
     } else {
-      const superfriend = ["64a1de8d98bb5a5ecc6e74cf"];
+      // const superfriend = ["64a1de8d98bb5a5ecc6e74cf"];
       const newUser = await User.insertMany([
         {
           firstName: firstName,
@@ -394,8 +394,6 @@ exports.signUp = async (req, res) => {
           phoneNumber: phoneNumber,
           password: password,
           email: email,
-          friends: superfriend,
-          status: "Approved",
         },
       ]);
       const settingParam = {
