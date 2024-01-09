@@ -59,13 +59,19 @@
             "schema": {
               "type": "object",
               "properties": {
-                "fullName": {
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
                   "type": "string"
                 },
                 "email": {
                   "type": "string"
                 },
                 "password": {
+                  "type": "string"
+                },
+                "phoneNumber": {
                   "type": "string"
                 }
               }

@@ -336,16 +336,22 @@ exports.addDetails = async (req, res) => {
 
 exports.signUp = async (req, res) => {
   try {
-    const { fullName, password, email } = req.body;
+    const { firstName, lastName, password, email, phoneNumber } = req.body;
     let errors = [];
-    if (!fullName) {
-      errors.push("fullName is requied");
+    if (!firstName) {
+      errors.push("FirstName is requied");
+    }
+    if (!lastName) {
+      errors.push("FirstName is requied");
     }
     if (!password) {
       errors.push("password is requied");
     }
     if (!email) {
       errors.push("email is requied");
+    }
+    if (!phoneNumber) {
+      errors.push("Phone Number is requied");
     }
     if (errors.length > 0) {
       errors = errors.join(",");
@@ -383,7 +389,9 @@ exports.signUp = async (req, res) => {
       const superfriend = ["64a1de8d98bb5a5ecc6e74cf"];
       const newUser = await User.insertMany([
         {
-          fullName: fullName,
+          firstName: firstName,
+          lastName: lastName,
+          phoneNumber: phoneNumber,
           password: password,
           email: email,
           friends: superfriend,
