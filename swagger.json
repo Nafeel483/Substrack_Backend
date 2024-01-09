@@ -9,7 +9,6 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-
   "host": "substrackbackend-production.up.railway.app",
   "basePath": "/api/v1",
   "tags": [
@@ -18,13 +17,21 @@
       "description": "API for users in the system"
     }
   ],
-  "schemes": ["https"],
-  "consumes": ["application/json"],
-  "produces": ["application/json"],
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/user/addDetails": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "Create new user in system",
         "parameters": [
           {
@@ -36,7 +43,9 @@
             }
           }
         ],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "New user is created",
@@ -49,7 +58,9 @@
     },
     "/user/signUp": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "Create new user in system",
         "parameters": [
           {
@@ -78,7 +89,9 @@
             }
           }
         ],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "New user is created",
@@ -91,7 +104,9 @@
     },
     "/user/profileSetup": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "setup profile of user",
         "parameters": [
           {
@@ -115,7 +130,10 @@
                 },
                 "planet": {
                   "type": "string",
-                  "enum": ["Earth", "Mars"],
+                  "enum": [
+                    "Earth",
+                    "Mars"
+                  ],
                   "default": "Earth"
                 },
                 "country": {
@@ -144,7 +162,12 @@
                 },
                 "herefor": {
                   "type": "string",
-                  "enum": ["Friends", "Dating", "Notworking", "Business"],
+                  "enum": [
+                    "Friends",
+                    "Dating",
+                    "Notworking",
+                    "Business"
+                  ],
                   "default": "Friends"
                 },
                 "education": {
@@ -202,7 +225,9 @@
             }
           }
         ],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "Changes are saved"
@@ -212,7 +237,9 @@
     },
     "/user/login": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "Login to your account",
         "parameters": [
           {
@@ -224,7 +251,9 @@
             }
           }
         ],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "login success",
@@ -237,7 +266,9 @@
     },
     "/user/sendotp": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "send otp to your account",
         "parameters": [
           {
@@ -249,7 +280,9 @@
             }
           }
         ],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "otp sent successfully",
@@ -262,7 +295,9 @@
     },
     "/user/verifyOtp": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "verify otp",
         "parameters": [
           {
@@ -282,7 +317,9 @@
             }
           }
         ],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "Your Email is now verified",
@@ -295,7 +332,9 @@
     },
     "/user/forgetPassword": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "send code to your account",
         "parameters": [
           {
@@ -307,7 +346,9 @@
             }
           }
         ],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "Email with code sent to your registerd account successfully"
@@ -317,7 +358,9 @@
     },
     "/user/changePassword": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "change password",
         "parameters": [
           {
@@ -329,7 +372,9 @@
             }
           }
         ],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "Your password is updated",
@@ -342,7 +387,9 @@
     },
     "/user/updatePassword": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "update password",
         "parameters": [
           {
@@ -354,7 +401,9 @@
             }
           }
         ],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "Your password is updated"
@@ -362,13 +411,16 @@
         }
       }
     },
-   
     "/user/getAllUsers": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "get user",
         "parameters": [],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "data of user",
@@ -382,9 +434,18 @@
   },
   "definitions": {
     "User": {
-      "required": ["userName", "email", "password"],
+      "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "password",
+        "phoneNumber"
+      ],
       "properties": {
-        "userName": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
           "type": "string"
         },
         "email": {
@@ -392,11 +453,17 @@
         },
         "password": {
           "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
         }
       }
     },
     "UserLogin": {
-      "required": ["userName", "password"],
+      "required": [
+        "userName",
+        "password"
+      ],
       "properties": {
         "userName": {
           "type": "string"
@@ -407,7 +474,9 @@
       }
     },
     "UserOtp": {
-      "required": ["email"],
+      "required": [
+        "email"
+      ],
       "properties": {
         "email": {
           "type": "string"
@@ -415,7 +484,9 @@
       }
     },
     "VerifyOtp": {
-      "required": ["email"],
+      "required": [
+        "email"
+      ],
       "properties": {
         "email": {
           "type": "string"
@@ -423,7 +494,10 @@
       }
     },
     "changePassword": {
-      "required": ["code", "newPassword"],
+      "required": [
+        "code",
+        "newPassword"
+      ],
       "properties": {
         "code": {
           "type": "string"
@@ -434,7 +508,11 @@
       }
     },
     "updatePassword": {
-      "required": ["oldPassword", "newPassword", "id"],
+      "required": [
+        "oldPassword",
+        "newPassword",
+        "id"
+      ],
       "properties": {
         "oldPassword": {
           "type": "string"
